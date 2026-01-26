@@ -6,10 +6,9 @@ const searchbar = document.querySelector('.searchbar');
 const errorload = document.querySelector('.error-no-city');
 const welcomescreen = document.querySelector('.welcomegreet');
 const continuebut = document.querySelector('.continue');
-const headingname = document.querySelector('.heading-main');
+const headingname = document.querySelector('.weatherapp .heading-main');
 const weather = document.querySelector('.weathermain');
 
-let url = ``;
 
 function showloader(){
     loader.classList.remove('hidder');
@@ -17,6 +16,7 @@ function showloader(){
     errorload.classList.add('hidder');
     weather.classList.add('hidder');
     // headingname.classList.add('hidder');
+    searchbt.disabled = true;
 }
 
 function showWeather() {
@@ -24,6 +24,7 @@ function showWeather() {
     weather.classList.remove("hidder");
     errorload.classList.add("hidder");
     // searchbar.classList.add('hidder');
+    searchbt.disabled = false;
 }
 
 function showhome(){
@@ -40,6 +41,7 @@ function showError(message) {
     weather.classList.add("hidder");
     // searchbar.classList.add('hidder');
     errorload.classList.remove("hidder");
+    searchbt.disabled = false;
     document.querySelector('.errormsg').textContent = message;
 }
 function updateweatherui(data){
@@ -64,8 +66,10 @@ function updateweatherui(data){
 
     document.querySelector('.visibl-ty').textContent=`${((Number(data.visibility
     ))/1000).toFixed(1)} km`;
-
-    document.querySelector('.sealevel').textContent=`${data.main.sea_level} hPa`;
+    const seaLevelValue = data.main.sea_level
+  ? `${data.main.sea_level} hPa`
+  : "N/A";
+    document.querySelector('.sealevel').textContent=seaLevelValue;
 }
 async function getWeather(url){
     showloader();
@@ -85,18 +89,25 @@ async function getWeather(url){
         console.log(error);
     }
 }
-
-searchbt.addEventListener('click',()=>{
-    let cityname = cityinput.value;
+function searchcity(){
+    let cityname = cityinput.value.trim();
     
-    if(!cityname.trim()) {
+    if(!cityname) {
         showError("Please enter a city name!");
         return;
     }
 
-    url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${weatherapi}&units=metric`;
-
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${weatherapi}&units=metric`;
     getWeather(url);
-});
+
+}
+searchbt.addEventListener('click',searchcity);
 
 continuebut.addEventListener('click', showhome);
+
+searchbar.addEventListener('keydown',(e)=>{
+    if(e.key==='Enter'){
+        searchcity(); 
+    }
+    
+});
