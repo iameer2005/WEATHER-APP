@@ -2,21 +2,81 @@
 <html>
     <head>
         <title>
-            Weather App
+            mWeather
         </title>
+        <link rel="icon" href="./asset/welcome-img.png">
         <link rel="stylesheet" href="./style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
     <body>
        <div class="mainapp">
             <div class="weatherapp">
-                <div class="heading-main">myWeatherApp</div>
-                <div class="searchbar">
-                    <input type="text" class="city-search">
-                    <button class="search-but">Search</button>
+                <div class="heading-main hidder">mWeather</div>
+                <div class="searchbar hidder">
+                    <input type="text" class="city-search" placeholder="Search for city">
+                    <button class="search-but" >Search</button>
+                </div>
+                <div class="loader hidder">
+                    <img src="./asset/loader.gif" alt="Loading..." class="loader-img-gif">
+                    <p class="loading-text">Loading...</p>
+                </div>
+
+                <div class="welcomegreet">
+                    <img src="./asset/welcome-img.png" alt="Icon Loader" class="welcome-img">
+                    <div class="heading-main ">myWeather</div>
+                    <button class="continue"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="error-no-city hidder">
+                    <img src="./asset/notfound.gif" alt="Error Not Found" class="notfound">
+                    <div class="errormsg">
+                        City not found! 
+                    </div>
+                </div>
+
+                <div class="weathermain hidder">
+                    <div class="weather-heading">
+                    <h2 class="cityname citynameinjs"></h2>
+                    <img src="" alt="Today Weather" class="weathericon">
+                    <h2 class="temperature-today"></h2>
+                    </div>
+                    <div class="scrollableitems">
+                    <div class="rowone">
+                        <div class="heading-row"><div class="head-con">FEELS LIKE</div> <div class="cont-con feels_like_deg"></div>
+                    
+                    </div>
+                    <div class="heading-row"><div class="head-con ">HUMIDITY</div> <div class="cont-con humidity-con"></div>
+                    
+                    </div>
+                    </div>
+                    <div class="rowtwo">
+                        <div class="heading-row"><div class="head-con">WIND</div> <div class="cont-con wind-speed"></div>
+                    
+                    </div>
+                    <div class="heading-row"><div class="head-con">PRESSURE</div> <div class="cont-con pressure-con"></div>
+                    
+                    </div>
+                    </div>
+                    <div class="rowtwo">
+                        <div class="heading-row"><div class="head-con">MAX TEMP</div> <div class="cont-con maxtemp"></div>
+                    
+                    </div>
+                    <div class="heading-row"><div class="head-con">MIN TEMP</div> <div class="cont-con mintemp"></div>
+                    
+                    </div>
+                    </div>
+                    <div class="rowtwo">
+                        <div class="heading-row"><div class="head-con">VISIBLITY</div> <div class="cont-con visibl-ty"></div>
+                    
+                    </div>
+                    <div class="heading-row"><div class="head-con">SEA LEVEL PRESSURE</div> <div class="cont-con sealevel"></div>
+                    
+                    </div>
+                    </div>
+                    </div>
                 </div>
             </div>
        </div>
