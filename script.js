@@ -1,5 +1,5 @@
 const cityinput = document.querySelector('.city-search');
-const weatherapi = '';
+const weatherapi = 'YOUR_API_KEY';
 const searchbt = document.querySelector('.search-but');
 const loader = document.querySelector('.loader');
 const searchbar = document.querySelector('.searchbar');
