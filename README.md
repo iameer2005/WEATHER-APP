@@ -8,7 +8,7 @@ It fetches real-time weather data from the **OpenWeather API** and displays deta
 ## Future Work 
 - Make it a mobile app
 - Integrate with react
-- Make is responsive
+- Make it responsive
 
 ---
 
