@@ -1,5 +1,5 @@
 const cityinput = document.querySelector('.city-search');
-const weatherapi = 'abb35183e43f55ec14b38bef774ff665';
+const weatherapi = '';
 const searchbt = document.querySelector('.search-but');
 const loader = document.querySelector('.loader');
 const searchbar = document.querySelector('.searchbar');
@@ -110,36 +110,4 @@ searchbar.addEventListener('keydown',(e)=>{
         searchcity(); 
     }
     
-});
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js")
-    .then(() => console.log("Service Worker Registered"))
-    .catch((err) => console.log("SW error", err));
-}
-
-
-let deferredPrompt;
-const installBtn = document.querySelector('.install-btn');
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault(); // stop auto popup
-  deferredPrompt = e;
-  installBtn.classList.remove('hidder');
-});
-
-installBtn.addEventListener('click', async () => {
-  if (!deferredPrompt) return;
-
-  deferredPrompt.prompt(); // show install popup
-
-  const { outcome } = await deferredPrompt.userChoice;
-  console.log("Install outcome:", outcome);
-
-  deferredPrompt = null;
-  installBtn.classList.add('hidder');
-});
-
-window.addEventListener('appinstalled', () => {
-  console.log("App installed");
 });

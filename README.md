@@ -5,6 +5,13 @@ It fetches real-time weather data from the **OpenWeather API** and displays deta
 
 ---
 
+## Future Work 
+- Make it a mobile app
+- Integrate with react
+- Make it responsive
+
+---
+
 ## 🚀 Features
 
 - 🔍 Search weather by city name
