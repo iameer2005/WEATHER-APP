@@ -40,6 +40,8 @@ mWeather/
 │── index.html
 │── style.css
 │── script.js
+|── manifest.json
+|── service-worker.js
 │── asset/
 │   ├── openweathermap/   # SVG weather icons
 │   ├── loader.gif
