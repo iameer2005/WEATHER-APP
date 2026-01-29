@@ -111,3 +111,34 @@ searchbar.addEventListener('keydown',(e)=>{
     }
     
 });
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js")
+    .then(() => console.log("Service Worker Registered"))
+    .catch((err) => console.log("SW error", err));
+}
+
+let deferredPrompt;
+const installBtn = document.querySelector('.install-btn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault(); // stop auto popup
+  deferredPrompt = e;
+  installBtn.classList.remove('hidder');
+});
+
+installBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt(); // show install popup
+
+  const { outcome } = await deferredPrompt.userChoice;
+  console.log("Install outcome:", outcome);
+
+  deferredPrompt = null;
+  installBtn.classList.add('hidder');
+});
+
+window.addEventListener('appinstalled', () => {
+  console.log("App installed");
+});
