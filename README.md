@@ -6,9 +6,7 @@ It fetches real-time weather data from the **OpenWeather API** and displays deta
 ---
 
 ## Future Work 
-- Make it a mobile app
-- Integrate with react
-- Make it responsive
+- Take User Location and give Weather
 
 ---
 
